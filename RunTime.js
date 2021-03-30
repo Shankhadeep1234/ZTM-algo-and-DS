@@ -46,14 +46,25 @@ const now = require("performance-now");
 
 //O(n^2) Quadratic time
 //#region
-const nums = ["a", "b", "c", "d", "e"];
+// const nums = ["a", "b", "c", "d", "e"];
 
-function logAllPairsInArray(array) {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      console.log(array[i], array[j]);
-    }
-  }
-}
+//oldWay with For loops
+// function logAllPairsInArray(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array.length; j++) {
+//       console.log(array[i], array[j]);
+//     }
+//   }
+// }
 
-logAllPairsInArray(nums);
+//ES5 way
+// function logAllPairsInArray(array) {
+//   array.forEach((firstNums) => {
+//     array.forEach((secondNums) => {
+//       console.log(firstNums, secondNums);
+//     });
+//   });
+// }
+
+// logAllPairsInArray(nums);
+//#endregion
