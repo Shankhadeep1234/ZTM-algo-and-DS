@@ -3,18 +3,18 @@ const now = require("performance-now");
 //O(n) linear time
 //#region
 // const nemo = ["nemo"];
-// const everyone = [
-//   "dory",
-//   "bruce",
-//   "marlin",
-//   "nemo",
-//   "gill",
-//   "bloat",
-//   "nigel",
-//   "squirt",
-//   "darla",
-//   "hank",
-// ];
+const everyone = [
+  "dory",
+  "bruce",
+  "marlin",
+  "nemo",
+  "gill",
+  "bloat",
+  "nigel",
+  "squirt",
+  "darla",
+  "hank",
+];
 
 // const large = new Array(100).fill("nemo");
 
@@ -30,7 +30,24 @@ const now = require("performance-now");
 //   console.log(`The function took ${t1 - t0} milliSeconds`);
 // }
 
-// findNemo(everyone); //o(n) --> linear time
+//es5 way
+let findNemo2 = (array) => {
+  array.forEach((fish) => {
+    if (fish === "nemo") {
+      console.log("Found Nemo");
+    }
+  });
+};
+
+let findNemo3 = (array) => {
+  for (let fish of array) {
+    if (fish === "nemo") {
+      console.log("Found Nemo");
+    }
+  }
+};
+
+findNemo3(everyone); //o(n) --> linear time
 //#endregion
 
 //O(1) constant time
