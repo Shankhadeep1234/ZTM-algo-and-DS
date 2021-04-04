@@ -22,7 +22,34 @@ function compareTwo(arr1, arr2) {
 }
 //#endregion
 
+//#region with hashMap (object) more efficient O(a=+b)
+function compareTwo2(arr1, arr2) {
+  // loop through first array and create object where properties === items in the array
+  // can we assume always 2 params?
+  let map = {};
+  for (let i = 0; i < arr1.length; i++) {
+    if (!map[arr1[i]]) {
+      const item = arr1[i];
+      map[item] = true;
+    }
+  }
+  for (let j = 0; j < arr2.length; j++) {
+    if (map[arr2[j]]) {
+      return true;
+    }
+  }
+  return false;
+  // loop through second array and check if item in second array exists on created object.
+}
+//#endregion
+
+//#region make more readable O(n^2) not efficient
+function containsCommonItem3(arr1, arr2) {
+  return arr1.some((item) => arr2.includes(item));
+}
+//#endregion
+
 let array1 = ["a", "b", "c", "x"];
 let array2 = ["z", "y", "x"];
 
-compareTwo(array1, array2);
+compareTwo2(array1, array2);
