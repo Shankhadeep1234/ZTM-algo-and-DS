@@ -1,9 +1,19 @@
-let isRequired = () => {
-  throw new Error("This is a mandatory parameter..");
-};
+const arr = [1, 2, 3, 4, 5, 6];
 
-let greetings = (name = isRequired(), message = "Hello Visitor") => {
-  return `${message}, ${name}`;
-};
+// Normal reduce
+const normal = arr.reduce((acc, current) => {
+  return acc + current;
+}, " ");
 
-greetings(); //Error: This is a mandatory parameter..
+// console.log(normal);
+
+// Output : 123456
+
+//reduce right
+const reverse = arr.reduceRight((acc, current) => {
+  return acc + current;
+}, " ");
+
+console.log(reverse);
+
+// Output : 654321

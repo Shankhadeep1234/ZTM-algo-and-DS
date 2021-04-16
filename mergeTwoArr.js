@@ -29,3 +29,5 @@ function mergeSortedArrays(array1, array2) {
   }
   return mergedArray;
 }
+
+console.log(mergeSortedArrays([0, 2, 4, 5, 6], [2, 2, 6, 8, 9, 10]));
