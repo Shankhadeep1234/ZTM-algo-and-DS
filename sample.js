@@ -1,19 +1,19 @@
-const arr = [1, 2, 3, 4, 5, 6];
+const avengers = [
+  { first: "Tony", last: "Stark" },
+  { first: "Petter", last: "Parker" },
+  { first: "Tony", last: "Stark" },
+];
 
-// Normal reduce
-const normal = arr.reduce((acc, current) => {
-  return acc + current;
-}, " ");
+const uniqueKeyToAvengers = new Map(
+  avengers.map((avenger) => [avenger.first + "\t" + avenger.last, avenger])
+); // [key,value]
 
-// console.log(normal);
+const uniqueAvengers = [...uniqueKeyToAvengers.values()];
 
-// Output : 123456
-
-//reduce right
-const reverse = arr.reduceRight((acc, current) => {
-  return acc + current;
-}, " ");
-
-console.log(reverse);
-
-// Output : 654321
+uniqueAvengers;
+// output :  [
+// {
+//   { first: "Tony", last: "Stark" },
+//   { first: "Petter", last: "Parker" }
+// }
+//]
