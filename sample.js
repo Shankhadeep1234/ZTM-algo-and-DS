@@ -6,6 +6,6 @@ const print = (num = isRequired()) => {
   console.log(`printing ${num}`);
 };
 
-//print(2); //Output : printing 2
-//print(); //Output : Error: param is required
+print(2); //Output : printing 2
+print(); //Output : Error: param is required
 print(null); //Output : printing null
