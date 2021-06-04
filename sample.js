@@ -1,11 +1,5 @@
-var i;
-var fib = []; // Initialize array!
+const ages = [12, 15, 18, 24, 39, 40];
 
-fib[0] = 0;
-fib[1] = 1;
-for (i = 2; i <= 10; i++) {
-  // Next fibonacci number = previous + one before previous
-  // Translated to JavaScript:
-  fib[i] = fib[i - 2] + fib[i - 1];
-  console.log(fib[i]);
-}
+const checkNotAdult = (age) => age >= 18;
+
+ages.findIndex(checkNotAdult); //---> Output: 2
