@@ -1,5 +1,10 @@
-const ages = [12, 15, 18, 24, 39, 40];
+const avenger = {
+  id: null,
+  name: "Spiderman",
+};
 
-const checkNotAdult = (age) => age >= 18;
+//without assert
+if (!avenger.id) console.log("Avenger ID is missing");
 
-ages.findIndex(checkNotAdult); //---> Output: 2
+//with assert
+console.assert(avenger.id, "Avenger ID is missing");
