@@ -1,10 +1,24 @@
-const avenger = {
-  id: null,
-  name: "Spiderman",
-};
+//Finding common items from two array
+// @param {Array} array1
+//@param {Array} array2
+//@ return {Array}
 
-//without assert
-if (!avenger.id) console.log("Avenger ID is missing");
+//Approach 1
 
-//with assert
-console.assert(avenger.id, "Avenger ID is missing");
+// function intersect(array1, array2) {
+//   const result = array1.filter((value) => array2.includes(value));
+
+//   return [...new Set(result)];
+// }
+
+//Approach 2
+function intersect(array1, array2) {
+  array2 = new Set(array2);
+
+  const result = array1.filter((value) => array2.has(value));
+  return [...new Set(result)];
+}
+
+intersect([1, 2, 1, 1, 3], [1, 2]); // [1,2]
+intersect([1, 1, 1, 1, 3], [1]); //[1]
+intersect([1, 1, 1, 3], [4, 2]); //[]
