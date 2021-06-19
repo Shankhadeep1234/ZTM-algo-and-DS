@@ -1,24 +1,16 @@
-//Finding common items from two array
-// @param {Array} array1
-//@param {Array} array2
-//@ return {Array}
+/**
+ * 💡 Partition an array based on a condition
+ */
 
-//Approach 1
+const partition = (arr, fn) => {
+  const partitionArray = [[], []];
+  for (let item of arr) {
+    if (fn(item)) partitionArray[1].push(item);
+    else partitionArray[0].push(item);
+  }
+  return partitionArray;
+};
 
-// function intersect(array1, array2) {
-//   const result = array1.filter((value) => array2.includes(value));
+partition([1, 2, 3, 4, 5], (n) => n % 2);
 
-//   return [...new Set(result)];
-// }
-
-//Approach 2
-function intersect(array1, array2) {
-  array2 = new Set(array2);
-
-  const result = array1.filter((value) => array2.has(value));
-  return [...new Set(result)];
-}
-
-intersect([1, 2, 1, 1, 3], [1, 2]); // [1,2]
-intersect([1, 1, 1, 1, 3], [1]); //[1]
-intersect([1, 1, 1, 3], [4, 2]); //[]
+// output ---> [ [ 2, 4 ], [ 1, 3, 5 ] ]
