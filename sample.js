@@ -1,16 +1,23 @@
 /**
- * 💡 Partition an array based on a condition
+ * Flatten nested array using generator function 💡
  */
 
-const partition = (arr, fn) => {
-  const partitionArray = [[], []];
-  for (let item of arr) {
-    if (fn(item)) partitionArray[1].push(item);
-    else partitionArray[0].push(item);
+const nestedArray = [1, 2, [3, 4, [5, 6]], 7, 8];
+
+function* flatten(array, depth = 1) {
+  for (let item of array) {
+    if (Array.isArray(item) && depth) {
+      yield* flatten(item, depth - 1);
+    } else {
+      yield item;
+    }
   }
-  return partitionArray;
-};
+}
 
-partition([1, 2, 3, 4, 5], (n) => n % 2);
+const generator = flatten(nestedArray, Infinity);
 
-// output ---> [ [ 2, 4 ], [ 1, 3, 5 ] ]
+generator.next(); //{ value: 1, done: false }
+generator.next(); //{ value: 2, done: false }
+generator.next(); //{ value: 3, done: false }
+generator.next(); //{ value: 4, done: false }
+generator.next(); //{ value: 5, done: false }
