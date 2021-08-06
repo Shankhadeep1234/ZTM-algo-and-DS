@@ -1,3 +1,5 @@
+const now = require("performance-now");
+
 const arrayHandler = {
   get: function (arr, property) {
     if (property < 0) {
