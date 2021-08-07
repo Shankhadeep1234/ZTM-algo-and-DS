@@ -23,4 +23,4 @@ array[0]; // => 10
 array[-1]; // => 50
 array[-3]; //=> 30
 array[-1] = "Something random";
-array; // [ 10, 20, 30, 40, 'Something random' ]
+array; // [ 10, 20, 30, 40] 'Something random'
