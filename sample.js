@@ -1,26 +1,18 @@
-const now = require("performance-now");
+/**
+ *  Topic ✔ : Generate sequence of numbers in JavaScript
+ */
 
-const arrayHandler = {
-  get: function (arr, property) {
-    if (property < 0) {
-      return arr[arr.length + parseInt(property)];
-    }
-    return arr[property];
-  },
-  set: function (arr, property, value) {
-    if (property < 0) {
-      arr[arr.length + parseInt(property)] = value;
-      return true;
-    }
-    arr[property] = value;
-    return true;
-  },
-};
+//Approach One:
+const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
+//numbers = [ 1, 2, 3, 4, 5 ]
 
-const array = new Proxy([10, 20, 30, 40, 50], arrayHandler);
+//Approach Two:
+const numbers = [];
+for (let i = 0; i < 5; i++) numbers.push(i + 1);
+//numbers = [1, 2, 3, 4, 5];
 
-array[0]; // => 10
-array[-1]; // => 50
-array[-3]; //=> 30
-array[-1] = "Something random";
-array; // [ 10, 20, 30, 40] 'Something random'
+//Approach Three:
+const numbers = Array(5)
+  .fill(0)
+  .map((_, index) => index + 1);
+//numbers = [ 1, 2, 3, 4, 5 ]
