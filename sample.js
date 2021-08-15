@@ -1,18 +1,14 @@
+//Hoisting in JS
 /**
- *  Topic ✔ : Generate sequence of numbers in JavaScript
+ * Question: Explain why the following piece of code works in a JavaScript environment, even if the method is not declared very first.
+ *
+ * Ans: In JavaScript, function declarations are getting hoisted. Therefore, The above sayHello method
+ *      will be moved to the top of the scope before the code execution. Therefore, when the JavaScript
+ *      runtime executes the sayHello function, it already knows about the function declaration.
  */
 
-//Approach One:
-const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
-//numbers = [ 1, 2, 3, 4, 5 ]
+sayHello();
 
-//Approach Two:
-const numbers = [];
-for (let i = 0; i < 5; i++) numbers.push(i + 1);
-//numbers = [1, 2, 3, 4, 5];
-
-//Approach Three:
-const numbers = Array(5)
-  .fill(0)
-  .map((_, index) => index + 1);
-//numbers = [ 1, 2, 3, 4, 5 ]
+function sayHello() {
+  console.log("Helloooooo");
+}
