@@ -1,14 +1,24 @@
-//Hoisting in JS
-/**
- * Question: Explain why the following piece of code works in a JavaScript environment, even if the method is not declared very first.
- *
- * Ans: In JavaScript, function declarations are getting hoisted. Therefore, The above sayHello method
- *      will be moved to the top of the scope before the code execution. Therefore, when the JavaScript
- *      runtime executes the sayHello function, it already knows about the function declaration.
- */
+// Invert keys and values of an object in #javascript
 
-sayHello();
+const obj = {
+  IronMan: "Tony Stark",
+  CaptainAmerica: "Steve Rogers",
+  BlackWidow: "Natasha Romanoff",
+  Falcon: "Sam Wilson",
+};
 
-function sayHello() {
-  console.log("Helloooooo");
+const revertedObj = Object.fromEntries(
+  Object.entries(obj).map(([key, value]) => [value, key])
+);
+
+console.log(revertedObj);
+
+/*
+OUTPUT👉 : 
+{
+  'Tony Stark': 'IronMan',
+  'Steve Rogers': 'CaptainAmerica',
+  'Natasha Romanoff': 'BlackWidow',
+  'Sam Wilson': 'Falcon'
 }
+*/
