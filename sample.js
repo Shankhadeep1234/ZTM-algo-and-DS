@@ -1,24 +1,14 @@
-// Invert keys and values of an object in #javascript
+/**
+ * Remove dynamic property from an object
+ */
 
-const obj = {
-  IronMan: "Tony Stark",
-  CaptainAmerica: "Steve Rogers",
-  BlackWidow: "Natasha Romanoff",
-  Falcon: "Sam Wilson",
-};
+const object = { one: 1, two: 2, three: 3 };
+const propertyName = "two";
 
-const revertedObj = Object.fromEntries(
-  Object.entries(obj).map(([key, value]) => [value, key])
-);
+//Process one ✔
+delete object[propertyName];
+// object = { one: 1, three: 3 }
 
-console.log(revertedObj);
-
-/*
-OUTPUT👉 : 
-{
-  'Tony Stark': 'IronMan',
-  'Steve Rogers': 'CaptainAmerica',
-  'Natasha Romanoff': 'BlackWidow',
-  'Sam Wilson': 'Falcon'
-}
-*/
+//Process two ✔
+const { [propertyName]: _, ...modifiedObject } = object;
+// modifiedObject = { one: 1, three: 3 }
