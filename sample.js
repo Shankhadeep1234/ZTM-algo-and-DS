@@ -1,14 +1,24 @@
 /**
- * Remove dynamic property from an object
+ * Topic: Promise.race()
  */
 
-const object = { one: 1, two: 2, three: 3 };
-const propertyName = "two";
+function resolveTimeOut(value, delay) {
+  return new Promise((resolve) => setTimeout(() => resolve(value), delay));
+}
 
-//Process one ✔
-delete object[propertyName];
-// object = { one: 1, three: 3 }
+function rejectTimeOut(value, delay) {
+  return new Promise((_, reject) => setTimeout(() => reject(value), delay));
+}
 
-//Process two ✔
-const { [propertyName]: _, ...modifiedObject } = object;
-// modifiedObject = { one: 1, three: 3 }
+const firstPromise = resolveTimeOut("Do some workout now 🤸‍♂️", 2000);
+const secondPromise = rejectTimeOut("Avoid Netflix and chill 😒", 1000);
+
+//---> Returns the first resolved or rejected promise
+(async () => {
+  try {
+    const promise = await Promise.race([firstPromise, secondPromise]);
+    console.log(promise);
+  } catch (error) {
+    console.log(error);
+  }
+})();
