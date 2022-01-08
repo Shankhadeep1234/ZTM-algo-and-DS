@@ -13,7 +13,7 @@ function rejectTimeOut(value, delay) {
 const firstPromise = resolveTimeOut("Do some workout now 🤸‍♂️", 2000);
 const secondPromise = rejectTimeOut("Avoid Netflix and chill 😒", 1000);
 
-//---> Returns the first resolved or rejected promise
+//---> Returns the first resolved or it's rejected promise
 (async () => {
   try {
     const promise = await Promise.race([firstPromise, secondPromise]);
